@@ -1,3 +1,3 @@
-# Parsing JSON
+# Capturing Command Line Arguments
 
-We have the response body as a String. Let's convert it into an Object we can access the data more programmatically.
+Our application is using a fixed username. Let's update the application so it can take in any number of usernames via command line arguments.
