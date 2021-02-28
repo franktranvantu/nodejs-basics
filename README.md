@@ -1,3 +1,3 @@
-# Hello World
+# Making a GET Request with https
 
-In this section we'll create our first simple application to be run on the Node.js platform.
+We'll use one of Node.js' built in modules `https` to go out and make a GET request.

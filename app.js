@@ -1,3 +1,6 @@
-console.log('Hello World');
-console.error('Oops! Something went wrong');
-console.dir({name: 'Frank', age: 28});
+const https = require('https');
+const username = 'franktran';
+
+https.get(`https://teamtreehouse.com/${username}.json`, res => {
+  console.log(res.statusCode);
+});
