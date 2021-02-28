@@ -11,7 +11,7 @@ function printError(error) {
 
 function getProfile(username) {
   try {
-    const request = https.get(`teamtreehouse.com/${username}.json`, res => {
+    const request = https.get(`https://teamtreehouse.com/${username}.json`, res => {
       let body = '';
       res.on('data', data => {
         body += data.toString();
