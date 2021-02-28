@@ -1,3 +1,3 @@
-# Making a GET Request with https
+# Getting the Response Body
 
-We'll use one of Node.js' built in modules `https` to go out and make a GET request.
+In this section we'll get the body from the response using something called a Stream.
