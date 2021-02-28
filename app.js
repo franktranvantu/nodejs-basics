@@ -5,6 +5,10 @@ function printMessage(username, badgeCount, points) {
   console.log(message);
 }
 
+function printError(error) {
+  console.log(error.message);
+}
+
 function getProfile(username) {
   try {
     const request = https.get(`teamtreehouse.com/${username}.json`, res => {
@@ -13,15 +17,17 @@ function getProfile(username) {
         body += data.toString();
       });
       res.on('end', () => {
-        const profile = JSON.parse(body);
-        printMessage(username, profile.badges.length, profile.points.JavaScript);
+        try {
+          const profile = JSON.parse(body);
+          printMessage(username, profile.badges.length, profile.points.JavaScript);
+        } catch (error) {
+          printError(error);
+        }
       })
     });
-    request.on('error', error => {
-      console.error(error.message);
-    });
+    request.on('error', printError);
   } catch (error) {
-    console.error(error.message);
+    printError(error);
   }
 }
 const usernames = process.argv.slice(2);

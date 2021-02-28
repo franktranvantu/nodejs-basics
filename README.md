@@ -1,3 +1,3 @@
-# Handling the Error Event in Node
+# Handling Parsing Errors with try and catch
 
-Often a lot of the APIs give you an "error" event to listen to. In this video we'll handle this type of error event.
+We've dealt with connection errors but there are other things that could go wrong. Let's see if we can catch the other errors that could happen.
