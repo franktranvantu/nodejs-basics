@@ -6,16 +6,23 @@ function printMessage(username, badgeCount, points) {
 }
 
 function getProfile(username) {
-  https.get(`https://teamtreehouse.com/${username}.json`, res => {
-    let body = '';
-    res.on('data', data => {
-      body += data.toString();
+  try {
+    const request = https.get(`teamtreehouse.com/${username}.json`, res => {
+      let body = '';
+      res.on('data', data => {
+        body += data.toString();
+      });
+      res.on('end', () => {
+        const profile = JSON.parse(body);
+        printMessage(username, profile.badges.length, profile.points.JavaScript);
+      })
     });
-    res.on('end', () => {
-      const profile = JSON.parse(body);
-      printMessage(username, profile.badges.length, profile.points.JavaScript);
-    })
-  });
+    request.on('error', error => {
+      console.error(error.message);
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 const usernames = process.argv.slice(2);
 usernames.forEach(username => getProfile(username));

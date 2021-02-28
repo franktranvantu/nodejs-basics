@@ -1,3 +1,3 @@
-# Capturing Command Line Arguments
+# Handling the Error Event in Node
 
-Our application is using a fixed username. Let's update the application so it can take in any number of usernames via command line arguments.
+Often a lot of the APIs give you an "error" event to listen to. In this video we'll handle this type of error event.
