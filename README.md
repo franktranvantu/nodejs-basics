@@ -1,3 +1,3 @@
-# Getting the Response Body
+# Parsing JSON
 
-In this section we'll get the body from the response using something called a Stream.
+We have the response body as a String. Let's convert it into an Object we can access the data more programmatically.
