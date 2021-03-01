@@ -1,0 +1,29 @@
+const https = require('https');
+const api = require('./api.json');
+
+// Print out temp details
+function printWeather(weather) {
+    const message = `Current temperature in ${weather.position.city} is ${weather.current_observation.temp_f}F.`;
+    console.log(message);
+}
+// Print out error message
+
+function get(query) {
+    const request = https.get(`https://api.wunderground.com/api/${api.key}/geolookup/conditions/q/${query}.json`, response => {
+        let body = "";
+        // Read the data
+        response.on('data', chunk => {
+            body += chunk;
+        });
+        response.on('end', () => {
+            //Parse data
+            const weather = JSON.parse(body);
+            //Print the data
+            printWeather(weather);
+        });
+    });
+}
+
+module.exports.get = get;
+
+//TODO: Handle any errors

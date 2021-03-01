@@ -1,3 +1,3 @@
-# Organizing Your Code with require
+# Project Overview
 
-All of our code is in our app.js file and this isn't ideal. When our app grows it may be difficult to see what's going on. We'll create our own module to compartmentalize our code.
+In this final section you’re going to lean on all the things you’ve learned so far by creating a weather command line application.
